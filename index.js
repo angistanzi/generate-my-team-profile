@@ -53,7 +53,9 @@ if (data.employee_type == 'Manager'){
         },
     ]
     )
-    console.log(managerData.office_number)
+    const thisManager = new Manager(managerData.name, managerData.id, managerData.email, managerData.office_number)
+    team.push(thisManager)
+    console.log(team)
 
 } else if (data.employee_type == 'Engineer') {
     const engineerData = await inquirer
@@ -80,6 +82,12 @@ if (data.employee_type == 'Manager'){
         },
     ]
     )
+
+    const thisEngineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github)
+    
+    team.push(thisEngineer)
+    
+    console.log(team)
     //team.push(new Engineer(`${engineerData.name}, ${engineerData.id}, ${engineerData.email}, ${engineerData.github}`));
     console.log(engineerData.github)
 } else{
@@ -107,19 +115,17 @@ if (data.employee_type == 'Manager'){
         },
     ]
     )
+    const thisIntern = new Manager(internData.name, internData.id, internData.email, internData.school)
+    team.push(thisIntern)
     console.log(internData.school)
 }
+
 }
-
-
-
-
 
 
 startProgram()
 async function startProgram(){
-    team.push(new Engineer("Angelina", 14, "email", "github"));
     let htmlDoc = render(team)
     await fs.writeFile(outputPath, htmlDoc)
 }
-console.log(team)
+//console.log(team)
