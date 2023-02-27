@@ -55,6 +55,10 @@ if (data.employee_type == 'Manager'){
     )
     const thisManager = new Manager(managerData.name, managerData.id, managerData.email, managerData.office_number)
     team.push(thisManager)
+    startProgram()
+    async function startProgram(){
+    let htmlDoc = render(team)
+    await fs.writeFile(outputPath, htmlDoc)}
     console.log(team)
 
 } else if (data.employee_type == 'Engineer') {
@@ -86,7 +90,11 @@ if (data.employee_type == 'Manager'){
     const thisEngineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github)
     
     team.push(thisEngineer)
-    
+    startProgram()
+    async function startProgram(){
+    let htmlDoc = render(team)
+    await fs.writeFile(outputPath, htmlDoc)
+}   
     console.log(team)
     //team.push(new Engineer(`${engineerData.name}, ${engineerData.id}, ${engineerData.email}, ${engineerData.github}`));
     console.log(engineerData.github)
@@ -117,15 +125,38 @@ if (data.employee_type == 'Manager'){
     )
     const thisIntern = new Manager(internData.name, internData.id, internData.email, internData.school)
     team.push(thisIntern)
-    console.log(internData.school)
-}
-
-}
-
-
-startProgram()
-async function startProgram(){
+    startProgram()
+    async function startProgram(){
     let htmlDoc = render(team)
     await fs.writeFile(outputPath, htmlDoc)
+} 
+    console.log(internData.school)
 }
-//console.log(team)
+}
+
+// addEmployee()
+// async function addEmployee (){
+// const addAnother  = await inquirer
+// .prompt([
+
+//     {
+//         name: 'add_member',
+//         type: 'list',
+//         message: "Would you like to add another team member?",
+//         choices: ["Yes", "No"],
+//     },
+
+// ])
+
+// if (addAnother.add_member == "Yes") {
+
+//     questionPrompt()
+
+// } else {
+
+//     console.log("All done! Open the team.html file to view you team.")
+
+// }
+
+// }
+
