@@ -24,7 +24,7 @@ async function questionPrompt() {
                 name: 'employee_type',
                 type: 'list',
                 message: "What type of employee would you like to create a profile for?",
-                choices: ['Manager', 'Engineer', 'Intern', 'Done Adding.'],
+                choices: ['Manager', 'Engineer', 'Intern', 'Finish building team'],
             },
         ]);
 
