@@ -125,7 +125,7 @@ async function questionPrompt() {
 function renderHTML() {
     const template = render(team)
     fs.writeFile("./output/team.html", template, (err) => {
-        if(err) throw err
-        else console.log("written a new file")
+        if(err) throw err;
     })
+    console.log("Written a new file")
 }
